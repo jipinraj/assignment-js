@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>HTML Form</title>
+    </head>
+<body>
+​
+<h2>HTML Forms</h2>
+​
+<form >
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" name="fname" value=""><br><br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" id="lname" name="lname" value="">
+  <br><br>
+  <label for="lname">Email:</label><br>
+  <input type="text" id="email" name="email" value=""><br>
+  <div id="email-error" style="color:red; font-size: 12px;">
+  </div>
+  <br><br><br>
+  <input id="btn" type="submit" value="Submit">
+
+</form>
+</body>
+<script>
+    const element = document.getElementById('btn');
+		element.addEventListener("click", function(e){ 
+            const pattern = /[A-z0-9_][A-z0-9_!@#$%^\&\*]{0,63}@[A-z0-9\.-]{1,253}\.[A-z]{1,8}/g;
+            const emailinput=document.getElementById('email').value;
+            const validity =pattern.test(emailinput);
+            if (!validity){
+               e.preventDefault();
+            document.getElementById("email-error").innerHTML="invalid email";
+           }
+           
+
+         });
+
+</script>
+</html>
